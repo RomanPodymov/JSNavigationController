@@ -16,14 +16,14 @@ open class JSNavigationController: NSViewController, JSViewControllersStackManag
 	open weak var delegate: JSNavigationControllerDelegate?
 
 	// MARK: - Creating Navigation Controllers
-	public init(rootViewController: NSViewController, contentView: NSView, navigationBarView: NSView) {
+	public required init(rootViewController: NSViewController, contentView: NSView, navigationBarView: NSView) {
 		self.contentView = contentView
 		navigationBarController = JSNavigationBarController(view: navigationBarView)
 		super.init(nibName: nil, bundle: nil)
 		push(viewController: rootViewController, animated: false)
 	}
 
-	public init(viewControllers: [NSViewController], contentView: NSView, navigationBarView: NSView) {
+	public required init(viewControllers: [NSViewController], contentView: NSView, navigationBarView: NSView) {
 		self.contentView = contentView
 		navigationBarController = JSNavigationBarController(view: navigationBarView)
 		super.init(nibName: nil, bundle: nil)
